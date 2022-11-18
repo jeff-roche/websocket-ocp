@@ -22,12 +22,7 @@ window.onload = function () {
         if (doScroll) {
             log.scrollTop = log.scrollHeight - log.clientHeight;
         }
-
-        beep();
     }
-    appendLog(window.location.host)
-    //appendLog(getBaseUrl());
-    //appendLog(getRootUrl());
 
     document.getElementById("form").onsubmit = function () {
         if (!conn) {
@@ -63,6 +58,7 @@ window.onload = function () {
             var messages = evt.data.split('\n');
             for (var i = 0; i < messages.length; i++) {
                 appendLog(messages[i]);
+                beep();
             }
         };
     } else {
