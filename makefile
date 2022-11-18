@@ -1,8 +1,8 @@
 build-client:
-	go build -o bin/websocketclient ./cli-client
+	CGO_ENABLED=0 go build -o bin/websocketclient ./cli-client
 
 build-server:
-	go build -o bin/websocketserver ./server
+	CGO_ENABLED=0 go build -o bin/websocketserver ./server
 
 build: build-client build-server
 
@@ -15,3 +15,6 @@ run-server:
 client: build-client run-client
 
 server: build-server run-server
+
+container:
+	docker build -t websocketserver:latest .
