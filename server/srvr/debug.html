@@ -25,6 +25,9 @@ window.onload = function () {
 
         beep();
     }
+    appendLog(window.location.host)
+    //appendLog(getBaseUrl());
+    //appendLog(getRootUrl());
 
     document.getElementById("form").onsubmit = function () {
         if (!conn) {
@@ -41,7 +44,18 @@ window.onload = function () {
     };
 
     if (window["WebSocket"]) {
-        conn = new WebSocket("ws://" + document.location.host + "/ws");
+        var host = "ws://" + window.location.host + "/ws";
+        appendLog("<em>Connecting to host " + host + "...</em>");
+        conn = new WebSocket(host);
+
+        conn.onopen = function (evt) {
+            appendLog("<b>Connected to " + host + "</b>");
+        };
+
+        conn.onerror = function(evt) {
+            appendLog("<b>Error connecting to host " + host + "<b>");
+        }
+
         conn.onclose = function (evt) {
             appendLog("<b>Connection closed.</b>");
         };

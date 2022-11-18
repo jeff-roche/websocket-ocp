@@ -64,8 +64,6 @@ func (s *WebsocketServer) listen() {
 }
 
 func serveDebugPage(w http.ResponseWriter, r *http.Request) {
-	log.Printf("Debug requested")
-
 	if r.URL.Path != "/debug" {
 		http.Error(w, "Not found", http.StatusNotFound)
 		return
