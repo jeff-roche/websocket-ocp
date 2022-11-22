@@ -42,4 +42,4 @@ On startup the client will try to connect to the server. Once connection is succ
 - `$ make run-server`
 
 ## Go Workspace Footnote
-I know the `go.work` file isn't recommended to be committed to the repo but It's small, saves time and most importently, **I'm a rebel.**
+I know the `go.work` file isn't recommended to be committed to the repo but It's small, saves time and most importantly, **I'm a rebel.**
